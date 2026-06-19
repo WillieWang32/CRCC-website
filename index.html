@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>上海创实链通数字科技有限公司</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0A0E1A;
+  --bg2: #0F1525;
+  --bg3: #151D30;
+  --ink: #FFFFFF;
+  --ink2: #A0ADCC;
+  --ink3: #5A6885;
+  --accent: #3D7BFF;
+  --accent2: #7B5CFF;
+  --gold: #F0C040;
+  --border: rgba(255,255,255,0.08);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(10,14,26,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5vw;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.logo { font-weight: 700; font-size: 16px; color: var(--ink); text-decoration: none; letter-spacing: 0.02em; }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 13px; color: var(--ink2); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  font-size: 13px; background: var(--accent); color: #fff;
+  border: none; border-radius: 6px; padding: 9px 20px;
+  cursor: pointer; font-family: inherit; transition: opacity 0.15s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* HERO */
+.hero { padding: 120px 5vw 100px; max-width: 1100px; margin: 0 auto; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(61,123,255,0.12);
+  border: 1px solid rgba(61,123,255,0.3);
+  border-radius: 20px; padding: 5px 14px;
+  font-size: 12px; color: var(--accent); letter-spacing: 0.05em; margin-bottom: 32px;
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+.hero h1 { font-size: clamp(36px, 5.5vw, 68px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 12px; }
+.hero h1 .line2 { font-weight: 300; color: var(--ink2); }
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-sub { font-size: 16px; color: var(--ink2); max-width: 520px; line-height: 1.75; margin: 24px 0 44px; }
+.hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--accent); color: #fff; border: none; border-radius: 8px;
+  padding: 14px 28px; font-size: 14px; font-family: inherit; cursor: pointer;
+  transition: opacity 0.15s; font-weight: 500;
+}
+.btn-primary:hover { opacity: 0.85; }
+.btn-ghost {
+  background: none; border: 1px solid var(--border); color: var(--ink2); border-radius: 8px;
+  padding: 14px 28px; font-size: 14px; font-family: inherit; cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.25); color: var(--ink); }
+
+/* STATS */
+.stats-strip {
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 48px 5vw; max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.stat-item { padding: 0 32px; border-right: 1px solid var(--border); }
+.stat-item:first-child { padding-left: 0; }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-size: 38px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px; }
+.stat-num span { color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--ink3); letter-spacing: 0.04em; }
+
+/* SECTION BASE */
+.section { padding: 90px 5vw; max-width: 1100px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+.section-title { font-size: clamp(26px, 3.5vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px; }
+.section-desc { font-size: 15px; color: var(--ink2); max-width: 560px; line-height: 1.75; margin-bottom: 52px; }
+
+/* WORKS */
+.works-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+.work-card {
+  background: var(--bg2); border: 1px solid var(--border); padding: 36px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.2s, background 0.2s; cursor: pointer;
+}
+.work-card:hover { border-color: rgba(61,123,255,0.4); background: var(--bg3); }
+.work-card:hover .work-reveal { max-height: 56px; opacity: 1; }
+.work-type { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); margin-bottom: 16px; }
+.work-title { font-size: 20px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.3; margin-bottom: 12px; }
+.work-desc { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+.work-reveal {
+  max-height: 0; opacity: 0; overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.25s ease;
+  border-top: 1px solid var(--border); padding-top: 18px; margin-top: 20px;
+}
+.work-reveal .tag {
+  display: inline-block; background: rgba(61,123,255,0.15); color: var(--accent);
+  border-radius: 4px; padding: 3px 10px; font-size: 12px; font-weight: 500;
+}
+.work-arrow {
+  position: absolute; top: 32px; right: 28px; font-size: 20px; color: var(--ink3);
+  transition: color 0.15s, transform 0.2s;
+}
+.work-card:hover .work-arrow { color: var(--accent); transform: translate(3px, -3px); }
+
+/* INDUSTRY */
+.industry-bg { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.industry-inner { padding: 90px 5vw; max-width: 1100px; margin: 0 auto; }
+.industry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 52px; }
+.industry-card { background: var(--bg3); border: 1px solid var(--border); padding: 32px; }
+.industry-num { font-size: 36px; font-weight: 700; letter-spacing: -0.02em; color: var(--gold); margin-bottom: 10px; }
+.industry-num small { font-size: 16px; font-weight: 400; color: var(--ink3); }
+.industry-card h4 { font-size: 15px; font-weight: 500; margin-bottom: 10px; }
+.industry-card p { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+
+/* ADVANTAGES */
+.adv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 52px; }
+.adv-card { background: var(--bg2); border: 1px solid var(--border); padding: 36px; }
+.adv-icon {
+  width: 44px; height: 44px; background: rgba(61,123,255,0.12);
+  border-radius: 10px; display: flex; align-items: center;
+  justify-content: center; font-size: 22px; margin-bottom: 20px;
+}
+.adv-card h4 { font-size: 17px; font-weight: 500; margin-bottom: 10px; }
+.adv-card p { font-size: 13px; color: var(--ink2); line-height: 1.7; }
+
+/* PLATFORM */
+.platform-bg { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.platform-inner { padding: 90px 5vw; max-width: 1100px; margin: 0 auto; }
+.platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 52px; }
+.platform-card { background: var(--bg3); border: 1px solid var(--border); padding: 28px; transition: border-color 0.2s; }
+.platform-card:hover { border-color: rgba(123,92,255,0.4); }
+.platform-card .tag {
+  display: inline-block; background: rgba(123,92,255,0.15); color: var(--accent2);
+  border-radius: 4px; padding: 3px 10px; font-size: 11px; letter-spacing: 0.05em; margin-bottom: 16px;
+}
+.platform-card h4 { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+.platform-card p { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+
+/* COURSES */
+.course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 52px; }
+.course-card { background: var(--bg2); border: 1px solid var(--border); padding: 28px; }
+.course-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 14px; }
+.course-card h4 { font-size: 15px; font-weight: 500; margin-bottom: 10px; }
+.course-card p { font-size: 13px; color: var(--ink2); line-height: 1.65; }
+
+/* CTA */
+.cta-section { padding: 120px 5vw; text-align: center; max-width: 1100px; margin: 0 auto; }
+.cta-section h2 { font-size: clamp(30px, 4.5vw, 54px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
+.cta-section h2 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.cta-section p { font-size: 16px; color: var(--ink2); margin-bottom: 40px; }
+.cta-info {
+  margin-top: 40px; display: flex; justify-content: center; gap: 48px;
+  border-top: 1px solid var(--border); padding-top: 40px; flex-wrap: wrap;
+}
+.cta-info-item { font-size: 13px; color: var(--ink2); }
+.cta-info-item strong { display: block; color: var(--ink); font-weight: 500; margin-bottom: 4px; }
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border); padding: 32px 5vw;
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+footer p { font-size: 12px; color: var(--ink3); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .stat-item { padding: 0 16px; }
+  .works-grid, .adv-grid, .industry-grid, .platform-grid, .course-grid { grid-template-columns: 1fr; }
+  .cta-info { gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#">创实<span>链通</span></a>
+  <ul class="nav-links">
+    <li><a href="#works">作品案例</a></li>
+    <li><a href="#industry">行业前景</a></li>
+    <li><a href="#platform">集灵平台</a></li>
+    <li><a href="#courses">课程体系</a></li>
+    <li><a href="#contact">联系我们</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">立即报名</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">AI 短剧赛道领先培训机构</div>
+  <h1>
+    AI赋能未来<br>
+    <span class="line2">创识成就<em>梦想</em></span>
+  </h1>
+  <p class="hero-sub">上海创实链通数字科技有限公司——专注数字内容产业人才培养，自主研发集灵 AI 短剧制作平台，全方位孵化优质创作人才。</p>
+  <div class="hero-actions">
+    <button class="btn-primary" onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">查看课程体系</button>
+    <button class="btn-ghost" onclick="document.getElementById('works').scrollIntoView({behavior:'smooth'})">浏览作品案例</button>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stat-item">
+    <div class="stat-num">20<span>+</span></div>
+    <div class="stat-label">合作 MCN 机构</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">240<span>亿</span></div>
+    <div class="stat-label">2026年行业预测规模</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">10<span>×</span></div>
+    <div class="stat-label">AI短剧项目同比增长</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">100<span>%</span></div>
+    <div class="stat-label">就业推荐保障</div>
+  </div>
+</div>
+
+<section class="section" id="works">
+  <div class="section-eyebrow">作品案例</div>
+  <h2 class="section-title">我们做出来的，<br>就是你能学到的</h2>
+  <p class="section-desc">学员将在真实商业项目中打磨技能，毕业作品即求职名片。</p>
+  <div class="works-grid">
+    <div class="work-card">
+      <span class="work-arrow">↗</span>
+      <div class="work-type">真人漫剧</div>
+      <div class="work-title">结合真人表演与 AI 漫画风格的混合短剧</div>
+      <p class="work-desc">融合真人拍摄与 AI 风格化渲染，打造独特的视觉叙事体验，精准覆盖 Z 世代核心受众。</p>
+      <div class="work-reveal"><span class="tag">AI 风格迁移 · 真人出演</span></div>
+    </div>
+    <div class="work-card">
+      <span class="work-arrow">↗</span>
+      <div class="work-type">2D 动画</div>
+      <div class="work-title">纯 AI 驱动的二维动画短剧内容</div>
+      <p class="work-desc">从剧本到分镜再到成片，全流程使用 AI 工具完成，大幅压缩制作成本与周期。</p>
+      <div class="work-reveal"><span class="tag">全 AI 流程 · 低成本高产出</span></div>
+    </div>
+    <div class="work-card">
+      <span class="work-arrow">↗</span>
+      <div class="work-type">3D 仿真</div>
+      <div class="work-title">高精度三维场景与角色仿真短剧</div>
+      <p class="work-desc">借助前沿 AI 模型生成逼真 3D 场景与数字人，呈现影视级视觉效果。</p>
+      <div class="work-reveal"><span class="tag">AI 数字人 · 3D 场景生成</span></div>
+    </div>
+    <div class="work-card">
+      <span class="work-arrow">↗</span>
+      <div class="work-type">文旅案例</div>
+      <div class="work-title">为文旅品牌定制的 AI 内容营销短片</div>
+      <p class="work-desc">将 AI 创作能力应用于文旅场景，为景区与品牌提供高性价比的内容解决方案。</p>
+      <div class="work-reveal"><span class="tag">品牌营销 · 文旅场景</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="industry-bg">
+  <div class="industry-inner" id="industry">
+    <div class="section-eyebrow">行业前景</div>
+    <h2 class="section-title">千亿级蓝海，<br>现在入场正当时</h2>
+    <p class="section-desc">2025 年是 AI 短剧元年，行业正迎来爆发式增长，这是属于你的窗口期。</p>
+    <div class="industry-grid">
+      <div class="industry-card">
+        <div class="industry-num">10<small>× 增长</small></div>
+        <h4>项目爆发式增长</h4>
+        <p>2025 年全年上线项目量同比增长超 10 倍，AI 短剧行业全面进入爆发期。</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-num">240<small>亿元</small></div>
+        <h4>千亿级市场规模</h4>
+        <p>预计到 2026 年，国内漫剧与 AI 短剧市场整体规模将突破 240 亿元，仍在快速上升通道中。</p>
+      </div>
+      <div class="industry-card">
+        <div class="industry-num">90<small>% 男性受众</small></div>
+        <h4>错位竞争新蓝海</h4>
+        <p>核心受众为 Z 世代（24-30 岁），男性占比超 90%，与传统短剧受众形成完美互补，开辟全新蓝海。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="advantage">
+  <div class="section-eyebrow">公司优势</div>
+  <h2 class="section-title">选择我们的<br>四大核心理由</h2>
+  <p class="section-desc">我们提供的不仅仅是一门课程，而是一个拥抱 AI 时代、实现个人价值的完整解决方案。</p>
+  <div class="adv-grid">
+    <div class="adv-card">
+      <div class="adv-icon">🎯</div>
+      <h4>专注大学生就业 · 聚焦 AI 短剧赛道</h4>
+      <p>课程设计紧密围绕提升大学生就业竞争力，精准切入由 Z 世代主导、前景广阔的 AI 短剧内容赛道。</p>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon">🤝</div>
+      <h4>深度合作 · 提供就业分配保障</h4>
+      <p>与多家知名 MCN 机构、头部内容工作室建立深度人才输送合作，学员考核通过即可直接获得实习或全职机会。</p>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon">🚀</div>
+      <h4>教授前沿 AI 应用 · 掌握急需技能</h4>
+      <p>聚焦 AI 短剧生成、AI 动画制作等市场最急需的技能方向，拒绝过时理论，确保所学即所用。</p>
+    </div>
+    <div class="adv-card">
+      <div class="adv-icon">🏆</div>
+      <h4>实战项目制学习 · 作品即名片</h4>
+      <p>采用 PBL 项目制学习，学员将从零构思并完成一个完整的商业级 AI 短剧项目，毕业作品就是最好的求职名片。</p>
+    </div>
+  </div>
+</section>
+
+<div class="platform-bg">
+  <div class="platform-inner" id="platform">
+    <div class="section-eyebrow">集灵 AI 平台</div>
+    <h2 class="section-title">一站式 AI 创作工作流，<br>从创意到成片</h2>
+    <p class="section-desc">集灵平台整合创意激发、内容生产、数字资产管理于一体，助力企业构建高效智能创作流水线。</p>
+    <div class="platform-grid">
+      <div class="platform-card">
+        <span class="tag">多模型生态</span>
+        <h4>顶尖 AI 模型整合</h4>
+        <p>整合火山引擎、阿里 Qwen、可灵等顶尖 AI 模型，一个平台调用全部能力。</p>
+      </div>
+      <div class="platform-card">
+        <span class="tag">智能文案</span>
+        <h4>一键生成创作内容</h4>
+        <p>一键生成营销文案、分镜剧本与创意构思，大幅提升内容产出效率。</p>
+      </div>
+      <div class="platform-card">
+        <span class="tag">多模态创作</span>
+        <h4>全链路内容生成</h4>
+        <p>支持文生图、图生视频、文生视频多种创作方式，覆盖全内容生产链路。</p>
+      </div>
+      <div class="platform-card">
+        <span class="tag">AI 配音</span>
+        <h4>音画精准同步</h4>
+        <p>提供丰富商用音色，实现音画精准同步，轻松完成专业级后期配音。</p>
+      </div>
+      <div class="platform-card">
+        <span class="tag">资产管理</span>
+        <h4>企业专属资产库</h4>
+        <p>建立企业专属资产库，支持团队资产实时共享，统一管理创作素材。</p>
+      </div>
+      <div class="platform-card">
+        <span class="tag">协作共创</span>
+        <h4>团队实时协同</h4>
+        <p>支持多人在线协同创作，打通从策划到发布的全链路工作流程。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="courses">
+  <div class="section-eyebrow">课程体系</div>
+  <h2 class="section-title">理论与实战深度融合，<br>六大模块系统成长</h2>
+  <p class="section-desc">采用项目制学习（PBL），在资深导师全程指导下，从零完成一个完整的商业级 AI 短剧项目。</p>
+  <div class="course-grid">
+    <div class="course-card">
+      <div class="course-num">模块 01</div>
+      <h4>AI 内容创作导论</h4>
+      <p>AI 短剧行业趋势、主流商业模式解析、主流平台内容生态概览。</p>
+    </div>
+    <div class="course-card">
+      <div class="course-num">模块 02</div>
+      <h4>AI 剧本与创意开发</h4>
+      <p>爆款短剧剧本拆解分析、AI 辅助剧本创作、镜头与分镜设计基础。</p>
+    </div>
+    <div class="course-card">
+      <div class="course-num">模块 03</div>
+      <h4>AI 数字人创建</h4>
+      <p>虚拟角色形象设计、AI 工具生成数字人、角色形象与声音一致性控制。</p>
+    </div>
+    <div class="course-card">
+      <div class="course-num">模块 04</div>
+      <h4>AI 场景与视频生成</h4>
+      <p>AI 生成虚拟场景、镜头语言与运镜技巧、AIGC 提示词优化策略。</p>
+    </div>
+    <div class="course-card">
+      <div class="course-num">模块 05</div>
+      <h4>后期制作与 AI 配音</h4>
+      <p>AI 工具智能剪辑实操、多风格 AI 语音合成与配音、成片导出与发布。</p>
+    </div>
+    <div class="course-card">
+      <div class="course-num">模块 06</div>
+      <h4>项目实战与就业指导</h4>
+      <p>分组完成结业作品、影视/新媒体行业求职技巧、专业作品集准备。</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <h2>加入我们，成为<br><em>下一个时代的创作者</em></h2>
+  <p>全程陪伴 · 实战教学 · 就业无忧<br>我们承诺的不止是培训</p>
+  <button class="btn-primary" style="font-size:15px; padding: 16px 40px;" onclick="window.location.href='mailto:contact@chuangshi-lt.com'">立即咨询报名</button>
+  <div class="cta-info">
+    <div class="cta-info-item">
+      <strong>公司地址</strong>
+      上海市闵行区申昆路 2177 号 14 幢 10 层 1005 室
+    </div>
+    <div class="cta-info-item">
+      <strong>就业保障</strong>
+      完成考核后直推 20+ 合作 MCN 机构
+    </div>
+    <div class="cta-info-item">
+      <strong>课程咨询</strong>
+      contact@chuangshi-lt.com
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 上海创实链通数字科技有限公司</p>
+  <p>专注数字内容产业人才培养</p>
+</footer>
+
+</body>
+</html>
