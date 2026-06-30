@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>上海创实链通数字科技有限公司</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1714;
+      --mid: #6b6560;
+      --soft: #9c9690;
+      --bg: #faf9f7;
+      --white: #ffffff;
+      --border: #e8e4de;
+      --accent: #c8a96e;
+      --nav-h: 68px;
+      --max-w: 1080px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* ── 导航 ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      background: rgba(250,249,247,.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+    }
+    .nav-logo {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--ink); text-decoration: none;
+      letter-spacing: .05em;
+    }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--mid);
+      font-size: .88rem; letter-spacing: .02em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      font-size: .85rem; font-weight: 600;
+      color: var(--ink); text-decoration: none;
+      border: 1px solid var(--ink);
+      padding: .4rem 1.1rem;
+      transition: background .2s, color .2s;
+    }
+    .nav-cta:hover { background: var(--ink); color: #fff; }
+    .nav-mobile-toggle {
+      display: none; background: none; border: none;
+      cursor: pointer; font-size: 1.4rem; color: var(--ink);
+      width: 40px; height: 40px;
+      align-items: center; justify-content: center;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      padding: calc(var(--nav-h) + 5rem) clamp(1.5rem, 5vw, 4rem) 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .hero-left {}
+    .hero-eyebrow {
+      font-size: .78rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.6rem; font-weight: 600;
+    }
+    .hero-left h1 {
+      font-family: "Noto Serif SC", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700; line-height: 1.25;
+      color: var(--ink); margin-bottom: 1.4rem;
+      letter-spacing: -.01em;
+    }
+    .hero-left p {
+      color: var(--mid); font-size: 1rem;
+      line-height: 1.85; margin-bottom: 2.5rem;
+      max-width: 440px;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-dark {
+      background: var(--ink); color: #fff;
+      padding: .7rem 1.8rem; font-size: .9rem;
+      font-weight: 600; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-dark:hover { opacity: .8; }
+    .btn-outline {
+      background: none; color: var(--ink);
+      border: 1px solid var(--border);
+      padding: .7rem 1.8rem; font-size: .9rem;
+      text-decoration: none; transition: border-color .2s;
+    }
+    .btn-outline:hover { border-color: var(--ink); }
+    .hero-right {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .hero-stat {
+      background: var(--white); border: 1px solid var(--border);
+      padding: 1.8rem 1.4rem;
+    }
+    .hero-stat .n {
+      font-family: "Noto Serif SC", serif;
+      font-size: 2.4rem; font-weight: 700;
+      color: var(--ink); line-height: 1;
+      margin-bottom: .5rem;
+    }
+    .hero-stat .n span { font-size: 1.2rem; color: var(--accent); }
+    .hero-stat p { color: var(--mid); font-size: .82rem; line-height: 1.5; }
+    .hero-stat.wide { grid-column: span 2; }
+
+    /* ── 通用section ── */
+    section { padding: 6rem clamp(1.5rem, 5vw, 4rem); }
+    .container { max-width: var(--max-w); margin: 0 auto; }
+    .section-label {
+      font-size: .72rem; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1rem; font-weight: 600;
+    }
+    .section-h {
+      font-family: "Noto Serif SC", serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700; line-height: 1.25;
+      color: var(--ink); margin-bottom: 1rem;
+    }
+    .section-p { color: var(--mid); max-width: 520px; margin-bottom: 3.5rem; line-height: 1.85; }
+
+    /* ── 关于 ── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 5fr 4fr; gap: 5rem; align-items: start;
+    }
+    .about-body p { color: var(--mid); line-height: 1.9; margin-bottom: 1rem; font-size: .97rem; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-milestones { display: flex; flex-direction: column; gap: 0; }
+    .milestone {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .milestone:first-child { border-top: 1px solid var(--border); }
+    .milestone-label {
+      font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: .25rem; font-weight: 600;
+    }
+    .milestone h4 { font-size: .94rem; font-weight: 700; margin-bottom: .2rem; }
+    .milestone p { color: var(--mid); font-size: .84rem; line-height: 1.65; }
+
+    /* ── 场地 ── */
+    #premises { background: var(--bg); }
+    .premises-video-wrap {
+      position: relative; border-radius: 0;
+      overflow: hidden; background: #000;
+      margin-bottom: 3rem;
+    }
+    .premises-video-wrap video { width: 100%; display: block; max-height: 500px; object-fit: cover; }
+    .video-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: .6rem 1.2rem;
+      background: linear-gradient(to top, rgba(0,0,0,.7), transparent);
+      color: rgba(255,255,255,.8); font-size: .82rem;
+    }
+    .premises-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border);
+    }
+    .premises-card {
+      background: var(--white); padding: 2rem 1.8rem;
+    }
+    .premises-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+    .premises-card h3 { font-size: .96rem; font-weight: 700; margin-bottom: .5rem; }
+    .premises-card p { color: var(--mid); font-size: .84rem; line-height: 1.7; }
+
+    /* ── 作品案例 ── */
+    #works { background: var(--white); }
+    .douyin-wrap {
+      margin-bottom: 3rem;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .douyin-label {
+      background: var(--ink); color: rgba(255,255,255,.7);
+      font-size: .8rem; padding: .6rem 1.2rem; font-weight: 600;
+    }
+    .douyin-frame { position: relative; width: 100%; padding-top: 56.25%; }
+    .douyin-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .douyin-caption {
+      background: var(--ink); color: rgba(255,255,255,.4);
+      font-size: .8rem; padding: .6rem 1.2rem; text-align: center;
+    }
+    .douyin-caption a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .works-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--border);
+    }
+    .work-card {
+      background: var(--bg); display: flex; flex-direction: column;
+      transition: background .2s;
+    }
+    .work-card:hover { background: var(--white); }
+    .work-emoji-box {
+      height: 120px; display: flex; align-items: center;
+      justify-content: center; font-size: 2.8rem;
+      background: var(--ink);
+    }
+    .work-body { padding: 1.4rem; flex: 1; }
+    .work-tag {
+      font-size: .7rem; color: var(--accent); font-weight: 600;
+      letter-spacing: .06em; margin-bottom: .5rem;
+      display: block;
+    }
+    .work-body h3 { font-size: .94rem; font-weight: 700; margin-bottom: .4rem; }
+    .work-body p { color: var(--mid); font-size: .82rem; line-height: 1.65; }
+
+    /* ── 课程 ── */
+    #courses { background: var(--bg); }
+    .courses-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border);
+    }
+    .course-card { background: var(--white); padding: 2rem 1.8rem; }
+    .course-num {
+      font-family: "Noto Serif SC", serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--border); line-height: 1; margin-bottom: .8rem;
+    }
+    .course-card h3 { font-size: .96rem; font-weight: 700; margin-bottom: .5rem; }
+    .course-card p { color: var(--mid); font-size: .84rem; line-height: 1.7; }
+
+    /* ── 团队 ── */
+    #team { background: var(--white); }
+    .founders-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); margin-bottom: 1px;
+    }
+    .founder-card {
+      background: var(--bg); padding: 2.5rem;
+      display: flex; gap: 2rem; align-items: flex-start;
+    }
+    .founder-img {
+      width: 90px; height: 110px; flex-shrink: 0;
+      overflow: hidden;
+    }
+    .founder-img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .founder-info h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.1rem; font-weight: 700; margin-bottom: .3rem;
+    }
+    .founder-role {
+      font-size: .72rem; color: var(--accent); font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase; margin-bottom: .8rem;
+    }
+    .founder-tags { list-style: none; }
+    .founder-tags li {
+      font-size: .82rem; color: var(--mid);
+      padding: .2rem 0; border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .founder-tags li:last-child { border-bottom: none; }
+
+    .team-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--border);
+    }
+    .team-card {
+      background: var(--white); padding: 1.8rem;
+      text-align: center;
+    }
+    .team-avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      overflow: hidden; margin: 0 auto 1rem;
+      border: 2px solid var(--border);
+    }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    .team-card h4 { font-size: .96rem; font-weight: 700; margin-bottom: .25rem; }
+    .team-card .role { font-size: .75rem; color: var(--accent); font-weight: 600; margin-bottom: .4rem; }
+    .team-card p { color: var(--mid); font-size: .78rem; line-height: 1.5; }
+
+    /* ── 视频号 ── */
+    #video-channel { background: var(--ink); text-align: center; padding: 5rem clamp(1.5rem,5vw,4rem); }
+    .vc-label { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; font-weight: 600; }
+    .vc-title { font-family: "Noto Serif SC", serif; font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; color: #fff; margin-bottom: .8rem; }
+    .vc-sub { color: rgba(255,255,255,.45); font-size: .9rem; margin-bottom: 2.5rem; }
+    .vc-btn {
+      display: inline-flex; align-items: center; gap: 1rem;
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 1.2rem 2.4rem; text-decoration: none;
+      transition: border-color .2s, background .2s;
+    }
+    .vc-btn:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.05); }
+    .vc-btn-icon { font-size: 1.6rem; }
+    .vc-btn-title { color: #fff; font-size: .96rem; font-weight: 700; display: block; }
+    .vc-btn-sub { color: rgba(255,255,255,.4); font-size: .78rem; }
+
+    /* ── 公众号 ── */
+    #articles { background: var(--bg); }
+    .articles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+    .article-card {
+      background: var(--white); padding: 2rem;
+      text-decoration: none; color: inherit;
+      display: flex; gap: 1rem; align-items: flex-start;
+      transition: background .2s;
+    }
+    .article-card:hover { background: var(--bg); }
+    .article-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
+    .article-tag { font-size: .7rem; color: var(--accent); font-weight: 600; letter-spacing: .08em; margin-bottom: .4rem; }
+    .article-card h3 { font-size: .94rem; font-weight: 700; line-height: 1.5; margin-bottom: .3rem; color: var(--ink); }
+    .article-card p { color: var(--mid); font-size: .8rem; }
+
+    /* ── 联系 ── */
+    #contact { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .contact-info h2 { font-family: "Noto Serif SC", serif; font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; margin-bottom: 1rem; }
+    .contact-info p { color: var(--mid); margin-bottom: 2.5rem; line-height: 1.85; }
+    .contact-item { display: flex; gap: 1rem; margin-bottom: 1.4rem; }
+    .contact-ico { font-size: 1.1rem; margin-top: .1rem; flex-shrink: 0; }
+    .contact-item h4 { font-size: .9rem; font-weight: 700; margin-bottom: .15rem; }
+    .contact-item p { color: var(--mid); font-size: .86rem; margin: 0; }
+    .contact-qr {
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 2.5rem; text-align: center;
+    }
+    .qr-img { width: 150px; height: 150px; margin: 0 auto 1rem; overflow: hidden; }
+    .qr-img img { width: 100%; height: 100%; object-fit: cover; }
+    .contact-qr h3 { font-size: .96rem; font-weight: 700; margin-bottom: .4rem; }
+    .contact-qr p { color: var(--mid); font-size: .84rem; }
+
+    /* ── 页脚 ── */
+    footer {
+      background: var(--ink); color: rgba(255,255,255,.35);
+      padding: 2rem clamp(1.5rem,5vw,4rem); font-size: .82rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer strong { color: rgba(255,255,255,.65); }
+
+    /* ── 响应式 ── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-links { flex-direction: column; gap: 0; position: fixed; top: var(--nav-h); left: 0; right: 0; background: rgba(250,249,247,.98); border-bottom: 1px solid var(--border); padding: .5rem 0; z-index: 99; }
+      .nav-links.open { display: flex; }
+      .nav-links li a { display: block; padding: .85rem 1.5rem; font-size: 1rem; border-bottom: 1px solid var(--border); }
+      .nav-mobile-toggle { display: flex; }
+      #hero { grid-template-columns: 1fr; gap: 2.5rem; padding-top: calc(var(--nav-h) + 3rem); }
+      .hero-right { grid-template-columns: 1fr 1fr; }
+      .about-grid, .contact-grid, .founders-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .premises-grid, .courses-grid { grid-template-columns: 1fr 1fr; }
+      .works-grid, .team-grid { grid-template-columns: 1fr 1fr; }
+      .articles-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 1.2rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .premises-grid, .courses-grid, .works-grid, .team-grid { grid-template-columns: 1fr; }
+      .hero-right { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 导航 -->
+<nav>
+  <a class="nav-logo" href="#">创实链通</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" onclick="closeNav()">公司介绍</a></li>
+    <li><a href="#works" onclick="closeNav()">作品案例</a></li>
+    <li><a href="#courses" onclick="closeNav()">课程体系</a></li>
+    <li><a href="#team" onclick="closeNav()">核心团队</a></li>
+    <li><a href="#contact" onclick="closeNav()">联系我们</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">立即咨询</a>
+  <button class="nav-mobile-toggle" id="navToggle" onclick="toggleNav()">☰</button>
+</nav>
+
+<script>
+  function toggleNav() {
+    const n = document.getElementById('navLinks');
+    const b = document.getElementById('navToggle');
+    n.classList.toggle('open');
+    b.textContent = n.classList.contains('open') ? '✕' : '☰';
+  }
+  function closeNav() {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('navToggle').textContent = '☰';
+  }
+</script>
+
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Shanghai · AIGC · 2026</div>
+    <h1>数字内容产业<br>人才培养先行者</h1>
+    <p>上海创实链通数字科技有限公司，深耕 AI 内容生态与电商运营，与全国头部 MCN 机构深度合作，致力于培养新一代数字内容创作人才。</p>
+    <div class="hero-btns">
+      <a class="btn-dark" href="#courses">查看课程体系</a>
+      <a class="btn-outline" href="#works">浏览作品案例</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat">
+      <div class="n">20<span>+</span></div>
+      <p>合作 MCN 机构及内容工作室</p>
+    </div>
+    <div class="hero-stat">
+      <div class="n">240<span>亿</span></div>
+      <p>2026 年行业预测市场规模</p>
+    </div>
+    <div class="hero-stat">
+      <div class="n">100<span>%</span></div>
+      <p>考核通过学员就业推荐率</p>
+    </div>
+    <div class="hero-stat">
+      <div class="n">6<span>大</span></div>
+      <p>系统课程模块，从零到成片</p>
+    </div>
+  </div>
+</section>
+
+<!-- 公司介绍 -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">Company Introduction</div>
+        <h2 class="section-h">专注数字内容<br>产业人才培养</h2>
+        <div class="about-body">
+          <p>公司深耕 AI 技术研发、AIGC 内容生态、电商运营、达人 IP 孵化、产教融合育人于一体，与多家优质 MCN 机构达成深度合作，构建从技术研发、内容量产、商业变现到人才输出的完整产业闭环。</p>
+          <p>正式挂牌成为致极学院官方实践基地与人才输送基地，围绕 AIGC 内容创作、AI 实用技能教学、企业复合型 AI 人才孵化三大板块深度共建。</p>
+          <p>与全国超过 20 家行业领先内容创作公司、MCN 机构建立人才直通计划，提前锁定优质就业资源，专项设立漫剧优质作品扶持基金，聚焦从内容孵化到商业变现的全产业链路。</p>
+          <p>总部位于上海虹桥核心商务板块，毗邻国家会展中心，坐拥一流商务配套与产业资源，是数字内容创业者与从业者的理想根据地。</p>
+        </div>
+      </div>
+      <div class="about-milestones">
+        <div class="milestone">
+          <div class="milestone-label">起点</div>
+          <h4>创立探索</h4>
+          <p>创造真实的链路连接，区块链溯源、供应链金融、AIGC 生态内容创新型科技企业</p>
+        </div>
+        <div class="milestone">
+          <div class="milestone-label">深耕</div>
+          <h4>技术沉淀</h4>
+          <p>AI 专业内容制作培训，依托平台技术与行业资源，产教融合、培育孵化全方位数字优质创作人才</p>
+        </div>
+        <div class="milestone">
+          <div class="milestone-label">扩张</div>
+          <h4>业务布局</h4>
+          <p>品牌全域营销、文旅 IP 打造、AI 短剧漫剧、内容孵化、电商运营全面展开</p>
+        </div>
+        <div class="milestone">
+          <div class="milestone-label">生态</div>
+          <h4>漫剧基金</h4>
+          <p>专项设立优质作品扶持与投资运营基金，聚焦漫剧全产业链，集项目投资、内容孵化、制作发行于一体</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 公司场地 -->
+<section id="premises">
+  <div class="container">
+    <div class="section-label">Company Premises</div>
+    <h2 class="section-h">现代化甲级办公空间</h2>
+    <p class="section-p">开阔通透、配套完善，满足数字科技企业高效办公与技术研发需求。</p>
+    <div class="premises-video-wrap">
+      <video src="创实链通场地展示视频.mp4" controls playsinline preload="metadata"></video>
+      <div class="video-label">🎬 创实链通 · 场地实景展示</div>
+    </div>
+    <div class="premises-grid">
+      <div class="premises-card">
+        <div class="premises-icon">🎬</div>
+        <h3>多媒体商务厅</h3>
+        <p>专业级多媒体设备，支持高清展示与商务洽谈。</p>
+      </div>
+      <div class="premises-card">
+        <div class="premises-icon">🎓</div>
+        <h3>多功能培训教室</h3>
+        <p>完善成熟的 AIGC 人才培训体系，配备先进教学设备。</p>
+      </div>
+      <div class="premises-card">
+        <div class="premises-icon">☀️</div>
+        <h3>阳光沙龙会议室</h3>
+        <p>开放式沙龙空间，激发创意灵感，适合头脑风暴。</p>
+      </div>
+      <div class="premises-card">
+        <div class="premises-icon">💼</div>
+        <h3>开放式办公区</h3>
+        <p>现代化开放办公格局，营造高效协作的工作氛围。</p>
+      </div>
+      <div class="premises-card">
+        <div class="premises-icon">🌟</div>
+        <h3>企业文化走廊</h3>
+        <p>展示公司发展历程与企业文化，传递品牌理念与价值观。</p>
+      </div>
+      <div class="premises-card">
+        <div class="premises-icon">👔</div>
+        <h3>总裁商务办公室</h3>
+        <p>高端商务接待空间，展现公司专业形象。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 作品案例 -->
+<section id="works">
+  <div class="container">
+    <div class="section-label">Work Example</div>
+    <h2 class="section-h">我们做出来的，就是你能学到的</h2>
+    <p class="section-p">学员将在真实商业项目中打磨技能，毕业作品即求职名片。</p>
+    <div class="douyin-wrap">
+      <div class="douyin-label">📱 真实作品案例 · 抖音视频</div>
+      <div class="douyin-frame">
+        <iframe src="https://open.douyin.com/player/video?vid=7655247725520938074&autoplay=0" allowfullscreen allow="autoplay; encrypted-media" frameborder="0"></iframe>
+      </div>
+      <div class="douyin-caption">百万年薪人生副本EP1：高盛分析师 · <a href="https://v.douyin.com/29OogG6gnNY/" target="_blank">点击跳转抖音观看 →</a></div>
+    </div>
+    <div class="works-grid">
+      <div class="work-card">
+        <div class="work-emoji-box">🎭</div>
+        <div class="work-body">
+          <span class="work-tag">AI 风格迁移 · 真人出演</span>
+          <h3>真人漫剧</h3>
+          <p>结合真人表演与 AI 漫画风格的混合短剧，精准覆盖 Z 世代核心受众。</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-emoji-box">🎨</div>
+        <div class="work-body">
+          <span class="work-tag">全 AI 流程 · 低成本高产出</span>
+          <h3>2D 动画</h3>
+          <p>从剧本到分镜再到成片，全流程使用 AI 工具，大幅压缩制作成本与周期。</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-emoji-box">🌐</div>
+        <div class="work-body">
+          <span class="work-tag">AI 数字人 · 3D 场景生成</span>
+          <h3>3D 仿真</h3>
+          <p>借助前沿 AI 模型生成逼真 3D 场景与数字人，呈现影视级视觉效果。</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-emoji-box">🏔️</div>
+        <div class="work-body">
+          <span class="work-tag">品牌营销 · 文旅场景</span>
+          <h3>文旅案例</h3>
+          <p>为文旅品牌定制 AI 内容营销短片，高性价比内容解决方案。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 课程体系 -->
+<section id="courses">
+  <div class="container">
+    <div class="section-label">Course System</div>
+    <h2 class="section-h">六大模块，系统成长</h2>
+    <p class="section-p">采用项目制学习（PBL），在资深导师全程指导下，从零完成一个完整的商业级 AI 短剧项目。</p>
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-num">01</div>
+        <h3>AI 内容创作导论</h3>
+        <p>AI 短剧行业趋势、主流商业模式解析、主流平台内容生态概览。</p>
+      </div>
+      <div class="course-card">
+        <div class="course-num">02</div>
+        <h3>AI 剧本与创意开发</h3>
+        <p>爆款短剧剧本拆解分析、AI 辅助剧本创作、镜头与分镜设计基础。</p>
+      </div>
+      <div class="course-card">
+        <div class="course-num">03</div>
+        <h3>AI 数字人创建</h3>
+        <p>虚拟角色形象设计、AI 工具生成数字人、角色形象与声音一致性控制。</p>
+      </div>
+      <div class="course-card">
+        <div class="course-num">04</div>
+        <h3>AI 场景与视频生成</h3>
+        <p>AI 生成虚拟场景、镜头语言与运镜技巧、AIGC 提示词优化策略。</p>
+      </div>
+      <div class="course-card">
+        <div class="course-num">05</div>
+        <h3>后期制作与 AI 配音</h3>
+        <p>AI 工具智能剪辑实操、多风格 AI 语音合成与配音、成片导出与发布设置。</p>
+      </div>
+      <div class="course-card">
+        <div class="course-num">06</div>
+        <h3>项目实战与就业指导</h3>
+        <p>分组完成结业作品、影视/新媒体行业求职技巧、专业作品集准备。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 核心团队 -->
+<section id="team">
+  <div class="container">
+    <div class="section-label">Our Team</div>
+    <h2 class="section-h">专业团队，引领数字未来</h2>
+    <p class="section-p">汇聚连续创业者、投资人、行业专家与技术精英，为每一位学员提供最强大的成长后盾。</p>
+    <div class="founders-grid">
+      <div class="founder-card">
+        <div class="founder-img"><img src="team-wang.png" alt="王羲伟" /></div>
+        <div class="founder-info">
+          <h3>王羲伟</h3>
+          <div class="founder-role">Founder · 创始人</div>
+          <ul class="founder-tags">
+            <li>上海创实链通创始人</li>
+            <li>上海神灯网络科技董事长</li>
+            <li>中投君安融资租赁董事长</li>
+            <li>长江EMBA · 清华五道口博士</li>
+            <li>连续创业者 · 知名投资人</li>
+          </ul>
+        </div>
+      </div>
+      <div class="founder-card">
+        <div class="founder-img"><img src="team-gao.png" alt="高吉" /></div>
+        <div class="founder-info">
+          <h3>高吉</h3>
+          <div class="founder-role">Co-Founder · 联合创始人</div>
+          <ul class="founder-tags">
+            <li>上海创实链通联合创始人</li>
+            <li>上海禾芙贸易有限公司董事长</li>
+            <li>上海烁吉心理咨询有限公司董事长</li>
+            <li>长江商学院EMBA</li>
+            <li>香港大学科企2期学员</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar"><img src="team-liu.png" alt="柳宇森" /></div>
+        <h4>柳宇森</h4>
+        <div class="role">CTO</div>
+        <p>信息系统项目管理师</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><img src="team-ma.png" alt="马东立" /></div>
+        <h4>马东立</h4>
+        <div class="role">Web3量化投资总监</div>
+        <p>创实链通核心管理团队</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><img src="team-li.png" alt="李贤春" /></div>
+        <h4>李贤春</h4>
+        <div class="role">AI短视频带货专家</div>
+        <p>抖音服装类目月销千万<br>服饰头部操盘手</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><img src="team-zhao.png" alt="赵令杰" /></div>
+        <h4>赵令杰</h4>
+        <div class="role">AIGC合伙人</div>
+        <p>前字节跳动、阿里巴巴项目经理<br>AI赋能讲师</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 视频号 -->
+<section id="video-channel">
+  <div class="vc-label">Official Channel</div>
+  <div class="vc-title">关注创实链通视频号</div>
+  <div class="vc-sub">第一时间获取 AI 短剧行业动态、课程资讯与优秀学员作品展示</div>
+  <a href="https://weixin.qq.com/sph/Ar7QutgIIJ" target="_blank" class="vc-btn">
+    <span class="vc-btn-icon">▶</span>
+    <span>
+      <span class="vc-btn-title">创实链通官方视频号</span>
+      <span class="vc-btn-sub">点击跳转 · 记得关注</span>
+    </span>
+  </a>
+</section>
+
+<!-- 公众号 -->
+<section id="articles">
+  <div class="container">
+    <div class="section-label">微信公众号</div>
+    <h2 class="section-h">最新行业资讯</h2>
+    <p class="section-p">关注创实链通公众号，获取 AI 内容创业最前沿洞察。</p>
+    <div class="articles-grid">
+      <a class="article-card" href="https://mp.weixin.qq.com/s/oS00QdtpEatXX84FAdzOUA" target="_blank">
+        <div class="article-icon">📰</div>
+        <div>
+          <div class="article-tag">最新推文</div>
+          <h3>AI漫剧的下一阶段，可能是"角色IP"化 →</h3>
+          <p>来自创实链通官方微信公众号</p>
+        </div>
+      </a>
+      <a class="article-card" href="https://mp.weixin.qq.com/s/R7O03XdoTFGSLPfKwNBPgA" target="_blank">
+        <div class="article-icon">📰</div>
+        <div>
+          <div class="article-tag">最新推文</div>
+          <h3>AI漫剧，正在重新定义"小团队"的生产能力 →</h3>
+          <p>来自创实链通官方微信公众号</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 联系我们 -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="section-label">Contact Us</div>
+        <h2>加入我们，<br>成为下一个时代的创作者</h2>
+        <p>全程陪伴 · 实战教学 · 就业无忧。我们承诺的不止是培训。</p>
+        <div class="contact-item">
+          <span class="contact-ico">📍</span>
+          <div>
+            <h4>公司地址</h4>
+            <p>上海市闵行区申昆路 2177 号 14 号楼 10 层 1005 室<br>（虹桥国际展汇南区）</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-ico">🤝</span>
+          <div>
+            <h4>就业保障</h4>
+            <p>完成考核后直推 20+ 合作 MCN 机构</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-ico">💬</span>
+          <div>
+            <h4>微信咨询</h4>
+            <p>扫描右侧二维码即可添加课程顾问</p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-qr">
+        <div class="qr-img">
+          <img src="wechat-qr.png.jpg" alt="微信二维码" />
+        </div>
+        <h3>扫码添加微信咨询</h3>
+        <p>创实链通 · 课程顾问</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <strong>© 2026 上海创实链通数字科技有限公司</strong>
+  <span>专注数字内容产业人才培养 · Shanghai</span>
+</footer>
+
+</body>
+</html>
